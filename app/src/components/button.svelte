@@ -2,7 +2,7 @@
     export let text: string;
 </script>
 
-<button>{text}</button>
+<button on:click>{text}</button>
 
 <style>
     button {
@@ -16,7 +16,7 @@
         border-radius: 1rem;
         transform-origin: center;
         box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-        margin: 10px 50% 50px;
+        margin: 10px 46% 50px;
     }
 
     button:hover {
