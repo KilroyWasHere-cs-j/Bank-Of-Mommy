@@ -12,16 +12,15 @@
 
 <style>
     .section {
-        margin: 10px 0;
+        margin-top: 500px;
         width: 100%;
-        height: 670px;
+        height: 300px;
     }
 
     h1 {
         color: white;
         font-size: 3rem;
         text-align: center;
-        margin-top: 10%;
     }
 
     p {
