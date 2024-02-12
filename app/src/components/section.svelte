@@ -18,7 +18,7 @@
     }
 
     h1 {
-        color: white;
+        color: white; 
         font-size: 3rem;
         text-align: center;
     }
