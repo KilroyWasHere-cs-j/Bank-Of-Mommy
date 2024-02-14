@@ -1,6 +1,4 @@
 <script lang="ts">
-    import logo from '$lib/logo.svg';
-
     export let title: string;
 </script>
 

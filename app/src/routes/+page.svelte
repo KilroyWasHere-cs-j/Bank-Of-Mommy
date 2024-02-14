@@ -14,14 +14,24 @@
 
     <div class="bg-sky-50">
         <h1>Our Misson</h1>
-        <p>We aim to give parents a simple a fun way to teacher thier kids about money and how to be responcable with it.</p>
+        <p>We aim to give families a fun and simple way to track their kids' money, to teach kids the basics of banking, and to encourage them to develop healthy financial habits.</p>
         <h1>Our Services</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut. Sed euismod nisi porta lorem. A diam sollicitudin tempor id eu nisl. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Duis convallis convallis tellus id interdum velit laoreet id. Laoreet non curabitur gravida arcu ac tortor dignissim convallis. Eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Ut ornare lectus sit amet est placerat in egestas erat.</p>
+        <p>We are not an actual bank - you keep your kids' money, and we just help you keep track of each account.  With our help, you can be a safe place to store your kids money, give them allowance and interest, buy any gift cards from them, help them make purchases with their own money, and show them their current balance at any time.</p>
 
         <br>
 
         <h1>How The Bank Of Mommy Works</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A diam maecenas sed enim ut. Sed euismod nisi porta lorem. A diam sollicitudin tempor id eu nisl. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Duis convallis convallis tellus id interdum velit laoreet id. Laoreet non curabitur gravida arcu ac tortor dignissim convallis. Eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Ut ornare lectus sit amet est placerat in egestas erat.</p>
+        
+        <div class="flex justify-center">
+            <ul class="max-w-md space-y-1 text-stone-500 list-disc list-inside dark:text-gray-400">
+                <li>Your kids give you all their cash</li>
+                <li>The Bank of Mommy will keep track of how much money each kid has</li>
+                <li>You determine weather you want to give your kids allowance, birthday, and other gifts, and a monthly interest payment on their savings. Bank of Mommy will keep track of that too.</li>
+                <li>When your want to purchase something, you buy it for them, and debut that amount from their Bank of Mommy account.</li>
+                <li>When your kids decide to save their money, they can watch the balance go out each month thanks to the interest payments.</li>
+            </ul>
+        </div>  
+
         <br>
 
         <div class="flex justify-center">
@@ -30,7 +40,7 @@
         <br>
     </div>
 
-    <Footer title="Contact Us" text="If you have any questions, please contact us at 1-800-123-4567." background="white"/>
+    <Footer title="Contact Us" text="If you have any questions, please contact us at 867-5309." background="white"/>
 </div>
 
 <style>
