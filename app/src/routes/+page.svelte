@@ -40,7 +40,7 @@
         <br>
     </div>
 
-    <Footer title="Contact Us" text="If you have any questions, please contact us at 867-5309." background="white"/>
+    <Footer/>
 </div>
 
 <style>

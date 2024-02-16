@@ -1,40 +1,30 @@
 <script lang="ts">
-    import Button from "../../components/button.svelte";
-    import TextInput from "../../components/text_input.svelte";
+    let account_name;
+    let age;
+    let starting_balance;
+    let allowence;
+    let intrest;
+
+    let account_status = "...";
+
+    function create_account(){
+    }
 </script>
 
-<div>
-    <h1>Interested in opening an account?</h1>
+<div class="bg-white m-10 rounded-xl drop-shadow-xl">
+    <br>
+    <h1 class="flex justify-center text-stone-500 text-4xl m-4">Interested in opening an account?</h1>
 
-    <p>Fill in your information and we'll get you sorted.</p>
+    <p class="flex justify-center text-stone-500 text-lg m-4">Fill in your information and we'll get you sorted.</p>
 
+    <input type="text" bind:value={account_name} placeholder="Account Holder Name" class="m-6 p-2 border-2 border-gray-300 rounded-md"/>
+    <input type="number" bind:value={age} placeholder="Account Holder Age" class="m-6 p-2 border-2 border-gray-300 rounded-md"/>
+    <input type="number" bind:value={starting_balance} placeholder="Starting Account Balance" class="m-6 p-2 border-2 border-gray-300 rounded-md"/>
+    <input type="number" bind:value={allowence} placeholder="Monthly Allowence" class="m-6 p-2 border-2 border-gray-300 rounded-md"/>
+    <input type="numbers" bind:value={intrest} placeholder="Monthly Interest" class="m-6 p-2 border-2 border-gray-300 rounded-md"/>
 
-    <Button text="Create new account with us!" on:click={() => window.location.href = '/create_account'}/>
+    <p class="flex justify-center">{account_status}</p>
+    <div class="flex justify-center">
+        <button class="m-6 p-2 bg-blue-500 text-white rounded-md" on:click={() => create_account()}>Create Account</button>
+    </div>
 </div>
-
-<style>
-      :global(body){
-        background-color: lightseagreen;
-    }
-
-    h1 {
-        color: white;
-        font-size: 3rem;
-        text-align: center;
-        margin-top: 10%;
-    }
-
-    p {
-        color: white;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    input {
-        width: 100%;
-        height: 50px;
-        margin: 10px 0;
-        padding: 10px;
-        font-size: 1.5rem;
-    }
-</style>

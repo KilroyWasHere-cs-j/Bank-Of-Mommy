@@ -2,6 +2,4 @@
     export let text: string;
 </script>
 
-<div class="flex justify-center">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-6" on:click>{text}</button>
-</div>
+<button class="bg-blue-500 text-white font-bold py-2 px-4 rounded m-6 shadow-xl hover:bg-blue-700 shadow-6xl" on:click>{text}</button>
