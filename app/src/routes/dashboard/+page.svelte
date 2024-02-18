@@ -1,14 +1,16 @@
 <script lang="ts">
     import AccountBox from '../../components/account_box.svelte';
-    import Button from '../../components/button.svelte';
+    import { onMount } from 'svelte';
 
-    export let username = "user";
+    export let username: string = "user";
+
     let account_number = 123456;
 
-    let total_account_balance = 100.00;
-    let total_children_accounts = 2;
+    let total_account_balance = 0.00;
+    let total_children_accounts = 0;
     let total_account_issues = 0;
-
+    let hold = 0;
+    
 </script>
 
 <div class="bg-white m-10 rounded-xl drop-shadow-xl">
@@ -39,7 +41,7 @@
 
 
     <div>
-        <AccountBox first_name="David" last_name="D"/>
+        <AccountBox first_name="David" last_name="D" adjustment_value={hold}/>
         <AccountBox first_name="Gillian" last_name="A"/>
     </div>
     <br>

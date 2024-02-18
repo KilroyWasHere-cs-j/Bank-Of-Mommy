@@ -7,15 +7,20 @@
   let login_attempts = 0;
   let login_attempts_cap = 5;
 
-  let login_valid = true;
 
   let isValid = () => {
-    return username.length > 0 && password.length > 0;
+    if(username.length > 0 && password.length > 0){
+      // Do some server magic to make sure account is even 
+      return true;
+    }
+    else{
+      return false;
+    }
   };
 
   function login(){
     if(login_attempts != login_attempts_cap){
-      if(login_valid){
+      if(isValid()){
         login_status = "Login successful!!"
         window.location.href = "dashboard"
       }

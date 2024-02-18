@@ -1,9 +1,9 @@
 <script lang="ts">
-    let account_name;
-    let age;
-    let starting_balance;
-    let allowence;
-    let intrest;
+    let account_name: string;
+    let age: number;
+    let starting_balance: number;
+    let allowence: number;
+    let intrest: number;
 
     let account_status = "...";
 
