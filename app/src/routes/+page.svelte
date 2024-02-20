@@ -43,18 +43,3 @@
     <Footer/>
 </div>
 
-<style>
-    h1 {
-        margin: 2%;
-        color: gray;
-        font-size: 3rem;
-        text-align: center;
-    }
-
-    p {
-        margin: 5%;
-        color: gray;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-</style>
