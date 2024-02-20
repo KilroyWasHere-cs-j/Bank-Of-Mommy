@@ -39,10 +39,11 @@
         </div>
     </div>
 
-
     <div>
-        <AccountBox first_name="David" last_name="D" adjustment_value={hold}/>
+        <AccountBox first_name="David" last_name="D"/>
         <AccountBox first_name="Gillian" last_name="A"/>
     </div>
+
     <br>
+
 </div>
