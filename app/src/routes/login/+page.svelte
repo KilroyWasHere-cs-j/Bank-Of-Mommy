@@ -1,4 +1,6 @@
 <script lang="ts">
+
+  import { login } from "./login.ts";
   
   let username = "";
   let password = "";
@@ -7,32 +9,7 @@
   let login_attempts = 0;
   let login_attempts_cap = 5;
 
-
-  let isValid = () => {
-    if(username.length > 0 && password.length > 0){
-      // Do some server magic to make sure account is even 
-      return true;
-    }
-    else{
-      return false;
-    }
-  };
-
-  function login(){
-    if(login_attempts != login_attempts_cap){
-      if(isValid()){
-        login_status = "Login successful!!"
-        window.location.href = "dashboard"
-      }
-      else{
-        login_status = "Incorrect username or password!";
-        login_attempts++;
-      }
-    }
-    else if(login_attempts == login_attempts_cap){
-      login_status = "You are out of login attempts! Please try again later.";
-    }
-  }
+  let login_valid = true;
 
 </script>
 
