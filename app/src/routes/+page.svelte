@@ -23,13 +23,13 @@
         <h1 class="flex justify-center text-4xl m-4">How The Bank Of Mommy Works</h1>
         
         <div class="flex justify-center">
-            <ul class="max-w-md space-y-1 text-zinc-950 list-disc list-inside dark:text-zinc-950">
+            <ol type="1" class="max-w-md space-y-1 text-zinc-950 list-disc list-inside dark:text-zinc-950">
                 <li>Your kids give you all their cash</li>
                 <li>The Bank of Mommy will keep track of how much money each kid has</li>
                 <li>You determine weather you want to give your kids allowance, birthday, and other gifts, and a monthly interest payment on their savings. Bank of Mommy will keep track of that too.</li>
                 <li>When your want to purchase something, you buy it for them, and debut that amount from their Bank of Mommy account.</li>
                 <li>When your kids decide to save their money, they can watch the balance go out each month thanks to the interest payments.</li>
-            </ul>
+            </ol>
         </div>  
 
         <br>
