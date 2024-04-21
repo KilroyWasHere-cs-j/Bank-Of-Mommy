@@ -91,7 +91,7 @@
   </div>
 
   <div class="flex justify-center">
-    <button class="m-6 p-2 bg-blue-500 text-white rounded-md" disabled={!login_valid} on:click={() => login()}>Login</button>
+    <button class="m-6 p-2 bg-amber-400 text-white rounded-md" disabled={!login_valid} on:click={() => login()}>Login</button>
   </div>
   <p class="flex justify-center">{login_status}</p>
 
