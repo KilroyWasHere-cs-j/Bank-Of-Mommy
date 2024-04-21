@@ -2,6 +2,11 @@
   import axios from 'axios';
   import { goto } from '$app/navigation';
 
+  import { user_account_number, user_password_hash, user_username, user_first_name, user_last_name, user_account_balance, user_age, user_allowance, user_interest } from '../data';
+
+  let username = "";
+  let password = "";
+
   // Define your GraphQL endpoint
   const graphqlEndpoint = 'https://bank-of-mommy.hasura.app/v1/graphql';
 
@@ -13,9 +18,6 @@
     'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
   };
 
-  let username = "";
-  let password = "";
-
   let login_status = "";
   let login_attempts = 0;
   let login_attempts_cap = 5;
@@ -26,13 +28,21 @@
     let query = `
     query Get_User_Data_With_User_Pass @cached {
       accounts(where: {Password_Hash: {_eq: "${password}"}, Username: {_eq: "${username}"}}) {
-        Account_Num
+        Account_Num,
+        Age
+        Allowance
+        First_Name
+        Interest
+        Last_Name
+        Account_Balance
+        Username
+        Password_Hash
       }
     }
   `;
-    console.log(username);
-    console.log(password);
     if(login_attempts != login_attempts_cap){
+      user_password_hash.set(password);
+      user_username.set(username);
       // Send the GraphQL query to the server using axios
       axios.post(graphqlEndpoint, { query }, { headers })
       .then((response) => {
@@ -41,9 +51,20 @@
           const account = accounts[0]; // We only care about the first account
           const {
             Account_Num,
+            First_Name,
+            Last_Name,
+            Interest,
+            Age,
+            Allowance,
+            Account_Balance,
           } = account;
-          // ! remove before release
-          console.log('Account Number:', Account_Num);
+          user_account_number.set(Account_Num);
+          user_first_name.set(First_Name);
+          user_last_name.set(Last_Name);
+          user_interest.set(Interest);
+          user_age.set(Age);
+          user_allowance.set(Allowance);
+          user_account_balance.set(Account_Balance);
           goto("/dashboard");
         } else {
           console.log('No account found for the specified credentials.');
