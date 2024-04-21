@@ -2,6 +2,16 @@
   import axios from 'axios';
   import { goto } from '$app/navigation';
 
+  import { user_account_number } from '../data';
+
+  let username = "";
+  let password = "";
+  let account_num = 69;
+
+  user_account_number.subscribe((value) => {
+    account_num = value;
+  })
+
   // Define your GraphQL endpoint
   const graphqlEndpoint = 'https://bank-of-mommy.hasura.app/v1/graphql';
 
@@ -12,9 +22,6 @@
   const headers = {
     'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
   };
-
-  let username = "";
-  let password = "";
 
   let login_status = "";
   let login_attempts = 0;
@@ -41,9 +48,7 @@
             Account_Num,
           } = account;
           // ! remove before release
-          console.log('Account Number:', Account_Num);
-          const data = { someKey: 'someValue' };
-          goto(`/dashboard/${encodeURIComponent(JSON.stringify(data))}`);
+          goto("/dashboard");
         } else {
           console.log('No account found for the specified credentials.');
         }

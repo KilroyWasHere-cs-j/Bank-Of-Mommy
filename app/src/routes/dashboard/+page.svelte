@@ -1,6 +1,12 @@
 <script lang="ts">
-    import AccountBox from '../../components/account_box.svelte';
     import { onMount } from 'svelte';
+    import AccountBox from '../../components/account_box.svelte';
+
+    import { user_account_number } from '../data';
+
+    onMount(() => {
+        console.log(user_account_number);
+    })
 
     // TODO move the API code to a dedicated file
 
@@ -23,21 +29,6 @@
     let total_children_accounts = 0;
     let total_account_issues = 0;
     let hold = 0;
-
-    let receivedData = {};
-
-    onMount(() => {
-        // Parse the data from the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const dataString = urlParams.get('data');
-        if (dataString) {
-            try {
-                receivedData = JSON.parse(decodeURIComponent(dataString));
-            } catch (error) {
-                console.error('Error parsing data from URL:', error);
-            }
-        }
-    });
 
     function getUserData() : void {
     }
