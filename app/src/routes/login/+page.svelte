@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { request, gql } from 'graphql-request';
   import axios from 'axios';
+  import { goto } from '$app/navigation';
 
   // Define your GraphQL endpoint
   const graphqlEndpoint = 'https://bank-of-mommy.hasura.app/v1/graphql';
 
-  // Define your API key
+  // ! Needs to be secret 
   const apiKey = 'rVimQoSnkyIOlsPFkKJC8VX5ZuLP0XtoI8vdvYe3BmqEEPPY5yO7s48AX39mlY2E';
 
   // Define headers with the API key
   const headers = {
-  'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
+    'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
   };
 
   let username = "";
@@ -68,6 +68,7 @@
           console.log('Account Balance:', Account_Balance);
           console.log('Username:', Username);
           console.log('Password Hash:', Password_Hash);
+          goto("/dashboard");
         } else {
           console.log('No account found for the specified credentials.');
         }
@@ -82,6 +83,7 @@
 </script>
 
 <br>
+
 <div class="bg-white m-10 rounded-xl drop-shadow-xl">
   <h1 class="flex justify-center text-6xl m-6">Login</h1>
 
