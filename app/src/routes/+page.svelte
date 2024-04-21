@@ -10,7 +10,7 @@
 </script>
 
 <div>
-    <Hero title="Welcome to the Bank of Mommy"/>
+    <Hero title="Mother Tree Bank"/>
 
     <div class="bg-sky-50">
         <h1 class="flex justify-center text-4xl m-4">Our Misson</h1>
