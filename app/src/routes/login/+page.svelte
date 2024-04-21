@@ -1,7 +1,18 @@
 <script lang="ts">
+  import { request, gql } from 'graphql-request';
+  import axios from 'axios';
 
-  import { login } from "./login.ts";
-  
+  // Define your GraphQL endpoint
+  const graphqlEndpoint = 'https://bank-of-mommy.hasura.app/v1/graphql';
+
+  // Define your API key
+  const apiKey = 'rVimQoSnkyIOlsPFkKJC8VX5ZuLP0XtoI8vdvYe3BmqEEPPY5yO7s48AX39mlY2E';
+
+  // Define headers with the API key
+  const headers = {
+  'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
+  };
+
   let username = "";
   let password = "";
 
@@ -10,6 +21,63 @@
   let login_attempts_cap = 5;
 
   let login_valid = true;
+
+  function login() : void {
+    let query = `
+    query Get_User_Data_With_User_Pass @cached {
+      accounts(where: {Password_Hash: {_eq: "${password}"}, Username: {_eq: "${username}"}}) {
+        Account_Num
+        Age
+        Allowance
+        First_Name
+        Interest
+        Last_Name
+        Account_Balance
+        Username
+        Password_Hash
+      }
+    }
+  `;
+    console.log(username);
+    console.log(password);
+    if(login_attempts != login_attempts_cap){
+      // Send the GraphQL query to the server using axios
+      axios.post(graphqlEndpoint, { query }, { headers })
+      .then((response) => {
+        const accounts = response.data.data.accounts;
+        if (accounts.length > 0) {
+          const account = accounts[0]; // We only care about the first account
+          const {
+            Account_Num,
+            Age,
+            Allowance,
+            First_Name,
+            Interest,
+            Last_Name,
+            Account_Balance,
+            Username,
+            Password_Hash,
+          } = account;
+          // ! remove before release
+          console.log('Account Number:', Account_Num);
+          console.log('Age:', Age);
+          console.log('Allowance:', Allowance);
+          console.log('First Name:', First_Name);
+          console.log('Interest:', Interest);
+          console.log('Last Name:', Last_Name);
+          console.log('Account Balance:', Account_Balance);
+          console.log('Username:', Username);
+          console.log('Password Hash:', Password_Hash);
+        } else {
+          console.log('No account found for the specified credentials.');
+        }
+      })
+      .catch((error) => {
+        alert("We could not locate your account. Please ensure that both the username and password are correct.");
+        console.error('Error:', error); // Handle errors
+      });
+    }
+  }
 
 </script>
 
@@ -23,7 +91,7 @@
   </div>
 
   <div class="flex justify-center">
-    <button class="m-6 p-2 bg-blue-500 text-white rounded-md" disabled={!isValid} on:click={() => login()}>Login</button>
+    <button class="m-6 p-2 bg-blue-500 text-white rounded-md" disabled={!login_valid} on:click={() => login()}>Login</button>
   </div>
   <p class="flex justify-center">{login_status}</p>
 
