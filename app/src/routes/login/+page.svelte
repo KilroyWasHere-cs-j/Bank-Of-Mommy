@@ -27,14 +27,6 @@
     query Get_User_Data_With_User_Pass @cached {
       accounts(where: {Password_Hash: {_eq: "${password}"}, Username: {_eq: "${username}"}}) {
         Account_Num
-        Age
-        Allowance
-        First_Name
-        Interest
-        Last_Name
-        Account_Balance
-        Username
-        Password_Hash
       }
     }
   `;
@@ -49,25 +41,9 @@
           const account = accounts[0]; // We only care about the first account
           const {
             Account_Num,
-            Age,
-            Allowance,
-            First_Name,
-            Interest,
-            Last_Name,
-            Account_Balance,
-            Username,
-            Password_Hash,
           } = account;
           // ! remove before release
           console.log('Account Number:', Account_Num);
-          console.log('Age:', Age);
-          console.log('Allowance:', Allowance);
-          console.log('First Name:', First_Name);
-          console.log('Interest:', Interest);
-          console.log('Last Name:', Last_Name);
-          console.log('Account Balance:', Account_Balance);
-          console.log('Username:', Username);
-          console.log('Password Hash:', Password_Hash);
           goto("/dashboard");
         } else {
           console.log('No account found for the specified credentials.');
