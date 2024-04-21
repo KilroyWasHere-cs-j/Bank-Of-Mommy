@@ -30,8 +30,6 @@
       }
     }
   `;
-    console.log(username);
-    console.log(password);
     if(login_attempts != login_attempts_cap){
       // Send the GraphQL query to the server using axios
       axios.post(graphqlEndpoint, { query }, { headers })
@@ -44,7 +42,8 @@
           } = account;
           // ! remove before release
           console.log('Account Number:', Account_Num);
-          goto("/dashboard");
+          const data = { someKey: 'someValue' };
+          goto(`/dashboard/${encodeURIComponent(JSON.stringify(data))}`);
         } else {
           console.log('No account found for the specified credentials.');
         }

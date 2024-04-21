@@ -2,6 +2,19 @@
     import AccountBox from '../../components/account_box.svelte';
     import { onMount } from 'svelte';
 
+    // TODO move the API code to a dedicated file
+
+    // Define your GraphQL endpoint
+    const graphqlEndpoint = 'https://bank-of-mommy.hasura.app/v1/graphql';
+
+    // ! Needs to be secret 
+    const apiKey = 'rVimQoSnkyIOlsPFkKJC8VX5ZuLP0XtoI8vdvYe3BmqEEPPY5yO7s48AX39mlY2E';
+
+    // Define headers with the API key
+    const headers = {
+        'x-hasura-admin-secret': apiKey, // Change to 'x-hasura-access-key' if needed
+    };
+
     export let username: string = "user";
 
     let account_number = 123456;
@@ -10,6 +23,24 @@
     let total_children_accounts = 0;
     let total_account_issues = 0;
     let hold = 0;
+
+    let receivedData = {};
+
+    onMount(() => {
+        // Parse the data from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const dataString = urlParams.get('data');
+        if (dataString) {
+            try {
+                receivedData = JSON.parse(decodeURIComponent(dataString));
+            } catch (error) {
+                console.error('Error parsing data from URL:', error);
+            }
+        }
+    });
+
+    function getUserData() : void {
+    }
     
 </script>
 
