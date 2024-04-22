@@ -2,7 +2,13 @@
   import axios from 'axios';
   import { goto } from '$app/navigation';
 
-  import { user_account_number, user_password_hash, user_username, user_first_name, user_last_name, user_account_balance, user_age, user_allowance, user_interest } from '../data';
+  import { user_account_number, user_username, user_first_name, user_last_name, user_account_balance, user_age, user_allowance, user_interest } from '../data';
+  import { onMount } from 'svelte';
+  import { get } from 'svelte/store';
+
+  onMount(() => {
+    username = get(user_username);
+  });
 
   let username = "";
   let password = "";
@@ -41,7 +47,6 @@
     }
   `;
     if(login_attempts != login_attempts_cap){
-      user_password_hash.set(password);
       user_username.set(username);
       // Send the GraphQL query to the server using axios
       axios.post(graphqlEndpoint, { query }, { headers })
